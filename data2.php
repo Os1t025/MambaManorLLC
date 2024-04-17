@@ -1,5 +1,5 @@
 <?php
-session_start(); // Start the session
+session_start();
 
 $servername = "localhost";
 $username = "mclaros1";
@@ -27,7 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $row = $check_user_result->fetch_assoc();
             // Verify password
             if(password_verify($password, $row['password'])){
-                // Password is correct, redirect to mainpage.php
                 $_SESSION['username'] = $username; // Store username in session for later use
                 header("Location: mainpage.php");
                 exit();

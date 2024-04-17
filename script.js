@@ -1,4 +1,3 @@
-// JavaScript to make header follow on scroll
 window.addEventListener('scroll', function() {
     var header = document.getElementById("header");
     var sticky = header.offsetTop;
@@ -20,7 +19,6 @@ function togglePopup() {
   popup.style.display = "block";
   overlay.style.display = "block";
   
-  // Display signup panel and hide login panel
   signupPanel.style.display = "block";
   loginPanel.style.display = "none";
 }
@@ -36,22 +34,22 @@ function showSignupPanel() {
   var signupPanel = document.getElementById("signup-panel");
   var loginPanel = document.getElementById("login-panel");
   var indicator = document.querySelector('.indicator');
-  var signupButton = document.querySelector('.button:nth-child(1)'); // Select the first button
+  var signupButton = document.querySelector('.button:nth-child(1)'); 
   signupPanel.style.display = "block";
   loginPanel.style.display = "none";
-  indicator.style.width = signupButton.offsetWidth + 'px'; // Set indicator width to match button
-  indicator.style.left = signupButton.offsetLeft + 'px'; // Set indicator position under the first button
+  indicator.style.width = signupButton.offsetWidth + 'px'; 
+  indicator.style.left = signupButton.offsetLeft + 'px';
 }
 
 function showLoginPanel() {
   var signupPanel = document.getElementById("signup-panel");
   var loginPanel = document.getElementById("login-panel");
   var indicator = document.querySelector('.indicator');
-  var loginButton = document.querySelector('.button:nth-child(2)'); // Select the second button
+  var loginButton = document.querySelector('.button:nth-child(2)'); 
   signupPanel.style.display = "none";
   loginPanel.style.display = "block";
-  indicator.style.width = loginButton.offsetWidth + 'px'; // Set indicator width to match button
-  indicator.style.left = loginButton.offsetLeft + 'px'; // Set indicator position under the second button
+  indicator.style.width = loginButton.offsetWidth + 'px';
+  indicator.style.left = loginButton.offsetLeft + 'px';
 }
 
 function validateSignup() {
