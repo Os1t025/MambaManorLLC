@@ -42,7 +42,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 VALUES ('$username', '$email', '$hashed_password')";
 
         if ($conn->query($sql) === TRUE) {
-            echo "Record inserted successfully!";
+            $conn->close();
+            // Redirect to index.php with success parameter
+            header("Location: index.php?signup=success");
+            exit();
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
@@ -50,6 +53,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: All fields are required.";
     }
 }
-
-$conn->close();
 ?>
+

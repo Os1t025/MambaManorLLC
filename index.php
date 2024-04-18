@@ -1,3 +1,8 @@
+<?php
+if(isset($_GET['signup']) && $_GET['signup'] == 'success') {
+    echo "<script>window.onload = function() { alert('You have signed up successfully'); }</script>";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,7 +66,7 @@
             </div>
             <div class="property-text">
                 <h2>Special Features</h2>
-                <p>shit idk man</p>
+                <p>At MambaManor, we're dedicated to crafting homes as unique as Kobe Bryant's legacy. Inspired by his pursuit of greatness, we offer a handpicked selection of exceptional properties that embody Kobe's extraordinary character. Our customized database ensures each listing is a testament to excellence. And to elevate the experience further, we even showcase homes from animated worlds. Discover the essence of exclusivity with MambaManor.</p>
             </div>
         </div>
     </div>
