@@ -26,7 +26,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($check_user_result->num_rows == 1) {
             $row = $check_user_result->fetch_assoc();
             // Verify password
+            $hashed_password_db = trim($row['password']);
             if(password_verify($password, $row['password'])){
+                echo "Password verified successfully.";
                 $_SESSION['username'] = $username; // Store username in session for later use
                 header("Location: mainpage.php");
                 exit();
@@ -46,3 +48,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $conn->close();
 ?>
+

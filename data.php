@@ -26,6 +26,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }
 
+        // Hash the password
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
         // Check if the username already exists
         $check_username_sql = "SELECT * FROM user WHERE username='$username'";
         $check_username_result = $conn->query($check_username_sql);
@@ -36,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Insert data into 'user' table
         $sql = "INSERT INTO user (username, email, password) 
-                VALUES ('$username', '$email', '$password')";
+                VALUES ('$username', '$email', '$hashed_password')";
 
         if ($conn->query($sql) === TRUE) {
             echo "Record inserted successfully!";
@@ -50,4 +53,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $conn->close();
 ?>
-
