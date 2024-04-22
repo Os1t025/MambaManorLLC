@@ -5,3 +5,14 @@ CREATE TABLE user (
     password VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE properties (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    price DECIMAL(10, 2),
+    address VARCHAR(255),
+    beds INT,
+    baths DECIMAL(5, 1),
+    sqft INT,
+    image_path VARCHAR(255)
+);
