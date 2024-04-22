@@ -306,11 +306,37 @@ function searchProperties() {
     xhr.send();
 }
 
+// Function to attach event listeners for cards and pins
+function attachEventListeners() {
+    cards.forEach(existingCard => {
+        existingCard.addEventListener('click', () => {
+            const folder = existingCard.getAttribute('data-folder');
+            openPopup(folder);
+        });
+    });
+
+    pins.forEach(existingPin => {
+        existingPin.addEventListener('click', () => {
+            const folder = existingPin.classList[1].replace('-pin', '');
+            openPopup(folder);
+        });
+    });
+}
+
 // Function to update dashboard with search results
 function updateDashboard(result) {
     const cardContainer = document.querySelector('.card-container');
     cardContainer.innerHTML = '';
-    
+
+    // Add the search bar back to the card container
+    const searchBarHTML = `
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search..." oninput="searchProperties()">
+        </div>
+    `;
+    cardContainer.innerHTML += searchBarHTML;
+
+    // Create and append the card with search result
     const card = document.createElement('div');
     card.classList.add('card');
     card.innerHTML = `
@@ -330,6 +356,20 @@ function updateDashboard(result) {
     `;
     
     cardContainer.appendChild(card);
+
+    // Reattach event listener for the new card
+    card.addEventListener('click', () => {
+        openPopup(result.name.toLowerCase());
+    });
+
+    // Reattach event listener for the pin
+    const newPin = document.querySelector(`.pin.${result.name.toLowerCase()}-pin`);
+    newPin.addEventListener('click', () => {
+        openPopup(result.name.toLowerCase());
+    });
+
+    // Reattach event listeners for all existing cards and pins
+    attachEventListeners();
 }
 
 </script>
