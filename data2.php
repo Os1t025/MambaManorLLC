@@ -1,10 +1,11 @@
 <?php
+//This file is for logging in
 session_start();
 
 $servername = "localhost";
-$username = "mclaros1";
-$password = "mclaros1";
-$dbname = "mclaros1";
+$username = "bmaldonado4";
+$password = "bmaldonado4";
+$dbname = "bmaldonado4";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
