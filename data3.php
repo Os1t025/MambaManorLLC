@@ -18,7 +18,7 @@ if ($conn->connect_error) {
 if(isset($_GET['search_term'])) {
     $search_term = $_GET['search_term'];
     // Prepare a SQL statement to fetch properties based on search term
-    $sql = "SELECT * FROM properties WHERE name LIKE '%$search_term%' OR address LIKE '%$search_term%'";
+    $sql = "SELECT * FROM properties WHERE name LIKE '%$search_term%' OR address LIKE '%$search_term%' OR price LIKE '%$search_term%' OR sqft LIKE '%$search_term%'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
