@@ -1,11 +1,8 @@
-<<<<<<< Updated upstream
-=======
 <?php include 'top2.php'; 
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
 } 
 ?>
->>>>>>> Stashed changes
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,12 +22,6 @@ if (isset($_SESSION['username'])) {
         <div class="pin familyguy-pin" style="top: 27%; left: 25%;"></div>
     </div>
     <div class="card-container">
-<<<<<<< Updated upstream
-        <div class="card phineas-card" data-folder="phineas" data-price="500,000" data-address="2308 Maple Drive" data-bed="3" data-bath="2" data-sqft="1800">Phineas</div>
-        <div class="card spongebob-card" data-folder="spongebob" data-price="400,000" data-address="124 Conch Street" data-bed="2" data-bath="1.5" data-sqft="1500">Spongebob</div>
-        <div class="card simpsons-card" data-folder="simpsons" data-price="600,000" data-address="742 Evergreen Terrace" data-bed="4" data-bath="3" data-sqft="2500">Simpsons</div>
-        <div class="card familyguy-card" data-folder="familyguy" data-price="550,000" data-address="101 Spooner St" data-bed="3" data-bath="2.5" data-sqft="2000">FamilyGuy</div>
-=======
         <!-- Add the search bar -->
     <div class="search-container">
         <input type="text" id="search-input" placeholder="Search..." oninput="searchProperties()">
@@ -98,7 +89,6 @@ if (isset($_SESSION['username'])) {
     </div>
 </div>
         <?php include 'bottom.php'; ?>
->>>>>>> Stashed changes
     </div>
 </div>
 
@@ -128,14 +118,6 @@ if (isset($_SESSION['username'])) {
     let currentImageIndex = 0;
     let imagesArray = [];
 
-<<<<<<< Updated upstream
-    // Define arrays for each card's image paths
-    const phineasImages = ['images/Phineas/Phineas1.jpeg', 'images/Phineas/Phineas2.jpg', 'images/Phineas/Phineas3.jpg', 'images/Phineas/Phineas4.jpg', 'images/Phineas/Phineas5.jpg', 'images/Phineas/Phineas6.jpg', 'images/Phineas/Phineas7.jpg', 'images/Phineas/Phineas8.jpg'];
-    const simpsonsImages = ['images/Simpsons/Simpsons1.jpeg', 'images/Simpsons/Simpsons2.jpeg', 'images/Simpsons/Simpsons3.jpeg', 'images/Simpsons/Simpsons4.jpg', 'images/Simpsons/Simpsons5.jpeg', 'images/Simpsons/Simpsons6.jpeg', 'images/Simpsons/Simpsons7.jpeg'];
-    const spongebobImages = ['images/Spongebob/Spongebob1.jpeg', 'images/Spongebob/Spongebob2.jpeg', 'images/Spongebob/Spongebob3.jpeg', 'images/Spongebob/Spongebob4.jpg', 'images/Spongebob/Spongebob5.jpg', 'images/Spongebob/Spongebob6.jpg', 'images/Spongebob/Spongebob7.jpg'];
-    const familyguyImages = ['images/Familyguy/Familyguy1.jpeg', 'images/Familyguy/Familyguy2.jpeg', 'images/Familyguy/Familyguy3.jpeg', 'images/Familyguy/Familyguy4.jpeg', 'images/Familyguy/Familyguy5.jpeg', 'images/Familyguy/Familyguy6.jpeg', 'images/Familyguy/Familyguy7.jpeg', 'images/Familyguy/Familyguy8.jpeg'];
-    // Add more arrays for other cards as needed
-=======
 // Select the Make Offer button by its ID and add an event listener
 const makeOfferBtn = document.getElementById('make-offer-btn');
 makeOfferBtn.addEventListener('click', makeOffer);
@@ -153,7 +135,6 @@ const simpsonsImages = ['images/Simpsons/Simpsons1.jpeg', 'images/Simpsons/Simps
 const spongebobImages = ['images/Spongebob/Spongebob1.jpeg', 'images/Spongebob/Spongebob2.jpeg', 'images/Spongebob/Spongebob3.jpeg', 'images/Spongebob/Spongebob4.jpg', 'images/Spongebob/Spongebob5.jpg', 'images/Spongebob/Spongebob6.jpg', 'images/Spongebob/Spongebob7.jpg'];
 const familyguyImages = ['images/Familyguy/Familyguy1.jpeg', 'images/Familyguy/Familyguy2.jpeg', 'images/Familyguy/Familyguy3.jpeg', 'images/Familyguy/Familyguy4.jpeg', 'images/Familyguy/Familyguy5.jpeg', 'images/Familyguy/Familyguy6.jpeg', 'images/Familyguy/Familyguy7.jpeg', 'images/Familyguy/Familyguy8.jpeg'];
 // Add more arrays for other cards as needed
->>>>>>> Stashed changes
 
     function openPopup(cardName) {
         const card = document.querySelector(`.card[data-folder="${cardName.toLowerCase()}"]`);
@@ -195,9 +176,7 @@ const familyguyImages = ['images/Familyguy/Familyguy1.jpeg', 'images/Familyguy/F
     function closePopup() {
         popupContainer.style.display = 'none';
     }
-<<<<<<< Updated upstream
-=======
-}
+
 // Add function to handle search
 function searchProperties() {
     const searchTerm = document.getElementById('search-input').value;
@@ -240,7 +219,6 @@ function addWishlist(propertyId, userId) {
     };
     xhr.send(`property_id=${propertyId}&user_id=${userId}`);
 }
->>>>>>> Stashed changes
 
     function prevImage() {
         currentImageIndex = (currentImageIndex - 1 + imagesArray.length) % imagesArray.length;
