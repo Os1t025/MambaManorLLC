@@ -21,8 +21,68 @@
     <div class="search-container">
         <input type="text" id="search-input" placeholder="Search..." oninput="searchProperties()">
     </div>
-    <!-- Keep a placeholder for search results -->
-    <div id="search-results" class="search-results"></div>
+    <div class="card phineas-card" data-folder="phineas" data-price="500,000" data-address="2308 Maple Drive" data-bed="3" data-bath="2" data-sqft="1800">
+    <div class="card-content">
+        <div class="image-container">
+            <img src="images/Phineas/Phineas1.jpeg" alt="Phineas Image">
+        </div>
+        <div class="info-container">
+            <h2>Phineas</h2>
+            <div class="details">
+                <p>Price: $500,000</p>
+                <p>Address: 2308 Maple Drive</p>
+                <p>Beds: 3 | Baths: 2 | Sq Ft: 1800</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card spongebob-card" data-folder="spongebob" data-price="400,000" data-address="124 Conch Street" data-bed="2" data-bath="1.5" data-sqft="1500">
+    <div class="card-content">
+        <div class="image-container">
+            <img src="images/Spongebob/Spongebob1.jpeg" alt="Spongebob Image">
+        </div>
+        <div class="info-container">
+            <h2>Spongebob</h2>
+            <div class="details">
+                <p>Price: $400,000</p>
+                <p>Address: 124 Conch Street</p>
+                <p>Beds: 2 | Baths: 1.5 | Sq Ft: 1500</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card simpsons-card" data-folder="simpsons" data-price="600,000" data-address="742 Evergreen Terrace" data-bed="4" data-bath="3" data-sqft="2500">
+    <div class="card-content">
+        <div class="image-container">
+            <img src="images/Simpsons/Simpsons1.jpeg" alt="Simpsons Image">
+        </div>
+        <div class="info-container">
+            <h2>Simpsons</h2>
+            <div class="details">
+                <p>Price: $600,000</p>
+                <p>Address: 742 Evergreen Terrace</p>
+                <p>Beds: 4 | Baths: 3 | Sq Ft: 2500</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card familyguy-card" data-folder="familyguy" data-price="550,000" data-address="101 Spooner St" data-bed="3" data-bath="2.5" data-sqft="2000">
+    <div class="card-content">
+        <div class="image-container">
+            <img src="images/Familyguy/Familyguy1.jpeg" alt="Family Guy Image">
+        </div>
+        <div class="info-container">
+            <h2>FamilyGuy</h2>
+            <div class="details">
+                <p>Price: $550,000</p>
+                <p>Address: 101 Spooner St</p>
+                <p>Beds: 3 | Baths: 2.5 | Sq Ft: 2000</p>
+            </div>
+        </div>
+    </div>
+</div>
         <?php include 'bottom.php'; ?>
     </div>
 </div>
@@ -248,8 +308,8 @@ function searchProperties() {
 
 // Function to update dashboard with search results
 function updateDashboard(result) {
-    const searchResultsContainer = document.getElementById('search-results');
-    searchResultsContainer.innerHTML = '';
+    const cardContainer = document.querySelector('.card-container');
+    cardContainer.innerHTML = '';
     
     const card = document.createElement('div');
     card.classList.add('card');
@@ -269,10 +329,9 @@ function updateDashboard(result) {
         </div>
     `;
     
-    searchResultsContainer.appendChild(card);
+    cardContainer.appendChild(card);
 }
 
 </script>
 </body>
 </html>
-
