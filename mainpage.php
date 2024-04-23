@@ -136,7 +136,6 @@
         <div id="popup-card-name" class="popup-card-name"></div>
         <div id="popup-details" class="popup-details"></div> <!-- Details section -->
         <button id="make-offer-btn" onclick="makeOffer()">Make Offer</button>
-        <button id="add-wishlist-btn" onclick="addWishlist(propertyId, username)">Add to Wishlist</button>
     </div>
 </div>
 
@@ -148,16 +147,6 @@ const popupImage = document.getElementById('popup-image');
 const popupDetails = document.getElementById('popup-details');
 let currentImageIndex = 0;
 let imagesArray = [];
-
-// Select the Make Offer button by its ID and add an event listener
-const makeOfferBtn = document.getElementById('make-offer-btn');
-makeOfferBtn.addEventListener('click', makeOffer);
-// Select the Add to Wishlist button by its ID and add an event listener
-const addWishlistBtn = document.getElementById('add-wishlist-btn');
-addWishlistBtn.addEventListener('click', () => {
-    const propertyId = document.querySelector('.popup-content').getAttribute('data-property-id');
-    addWishlist(propertyId, '<?php echo $username; ?>');
-});
 
 // Define arrays for each card's image paths
 const phineasImages = ['images/Phineas/Phineas1.jpeg', 'images/Phineas/Phineas2.jpg', 'images/Phineas/Phineas3.jpg', 'images/Phineas/Phineas4.jpg', 'images/Phineas/Phineas5.jpg', 'images/Phineas/Phineas6.jpg', 'images/Phineas/Phineas7.jpg', 'images/Phineas/Phineas8.jpg'];
@@ -214,6 +203,7 @@ firstFamilyGuyCard.addEventListener('click', () => {
 firstFamilyGuyPin.addEventListener('click', () => {
     openPopup('familyguy'); 
 });
+
 // Event listeners for the first Gravity Falls card
 const firstGravityFallCard = document.querySelector('.card.gravityfall-card');
 const firstGravityFallPin = document.querySelector('.pin.gravityfall-pin');
@@ -263,7 +253,7 @@ function openPopup(cardName) {
             description = "Nestled on 101 Spooner St in Quahog, Rhode Island, the Griffin family home is a charming retreat offering a blend of comfort and character. Featuring multiple levels, a versatile floor plan, and a vibrant neighborhood setting, this residence is perfect for families seeking a cozy yet lively living environment.";
             imagesArray = familyguyImages; 
             break;
-        case 'gravityfall':
+            case 'gravityfall':
             description = "Discover the mystery and adventure of Gravity Falls with this enchanting property located at 7691 Falls Rd. Tucked away in a secluded forest setting, this cozy retreat offers tranquility and charm. With its rustic yet cozy interior, expansive grounds, and proximity to local attractions, this property is perfect for those seeking a unique getaway.";
             imagesArray = gravityfallImages; 
             break;
@@ -472,45 +462,6 @@ function changeImage() {
 }
 setInterval(changeImage, 4000);
 
-function makeOffer() {
-    
-    popupDetails.innerHTML = `
-        <h3>Your offer will be sent to the owner</h3>
-        <label for="offer">Enter your offer amount: </label>
-
-        <input type="number" id="offer" name="offer" min="0" max="10000000" />
-        <button id="submit-offer-btn">Submit Offer</button>
-    `;
-    popupContainer.style.display = 'block';
-    // Select the Make Offer button by its ID and add an event listener
-    const submitOfferBtn = document.getElementById('submit-offer-btn');
-    submitOfferBtn.addEventListener('click', submitOffer);
-}
-
-function submitOffer() {
-    closePopup();
-    alert('Offer made!');
-}
-function addWishlist(propertyId, userId) {
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'data4.php', true);
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                const response = JSON.parse(xhr.responseText);
-                if (response.success) {
-                    alert(response.message); // Success message
-                } else {
-                    alert(response.message); // Error message
-                }
-            } else {
-                console.error('Error:', xhr.status); // Handle HTTP errors
-            }
-        }
-    };
-    xhr.send(`property_id=${propertyId}&user_id=${userId}`);
-}
 </script>
 </body>
 </html>
