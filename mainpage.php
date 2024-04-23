@@ -86,7 +86,9 @@
         <?php include 'bottom.php'; ?>
     </div>
 </div>
-
+<div class="footer">
+        <img id="slideshow" src="ad1.png" alt="Advertisement">
+    </div>
 <div id="popup-container" class="popup-container">
     <span class="close-btn" onclick="closePopup()">×</span>
     <div class="popup-content">
@@ -377,6 +379,16 @@ function updateDashboard(result) {
     attachEventListeners();
 }
 
+const images = ['ad1.png', 'ad2.jpg', 'ad3.JPG'];
+
+let currentIndex = 0;
+
+// Function to change image every 4 seconds
+function changeImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    document.getElementById('slideshow').src = images[currentIndex];
+}
+setInterval(changeImage, 4000);
 
 </script>
 </body>
