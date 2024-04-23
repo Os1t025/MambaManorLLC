@@ -105,7 +105,7 @@
 <div class="card teentitans-card" data-folder="teentitans" data-price="950,000" data-address="420 winton falls" data-bed="5" data-bath="2" data-sqft="7000">
     <div class="card-content">
         <div class="image-container">
-            <img src="images/TeenTitans/tower1.png" alt="Teen Titans Image">
+            <img src="images/TeenTitans/tower1.jpg" alt="Teen Titans Image">
         </div>
         <div class="info-container">
             <h2>TitanTower</h2>
@@ -135,6 +135,14 @@
         </div>
         <div id="popup-card-name" class="popup-card-name"></div>
         <div id="popup-details" class="popup-details"></div> <!-- Details section -->
+
+        <!-- Add a form for adding to wishlist -->
+        <form action="wishlistHandler.php" method="post" id="wishlistForm">
+            <input type="hidden" name="property_name" id="wishlistPropertyName">
+            <button type="submit" id="add-wishlist-btn">Add to Wishlist</button>
+        </form>
+
+        <!-- You may keep the "Make Offer" button if needed -->
         <button id="make-offer-btn" onclick="makeOffer()">Make Offer</button>
     </div>
 </div>
@@ -148,13 +156,16 @@ const popupDetails = document.getElementById('popup-details');
 let currentImageIndex = 0;
 let imagesArray = [];
 
+// Select the Make Offer button by its ID and add an event listener
+const makeOfferBtn = document.getElementById('make-offer-btn');
+makeOfferBtn.addEventListener('click', makeOffer);
 // Define arrays for each card's image paths
 const phineasImages = ['images/Phineas/Phineas1.jpeg', 'images/Phineas/Phineas2.jpg', 'images/Phineas/Phineas3.jpg', 'images/Phineas/Phineas4.jpg', 'images/Phineas/Phineas5.jpg', 'images/Phineas/Phineas6.jpg', 'images/Phineas/Phineas7.jpg', 'images/Phineas/Phineas8.jpg'];
 const simpsonsImages = ['images/Simpsons/Simpsons1.jpeg', 'images/Simpsons/Simpsons2.jpeg', 'images/Simpsons/Simpsons3.jpeg', 'images/Simpsons/Simpsons4.jpg', 'images/Simpsons/Simpsons5.jpeg', 'images/Simpsons/Simpsons6.jpeg', 'images/Simpsons/Simpsons7.jpeg'];
 const spongebobImages = ['images/Spongebob/Spongebob1.jpeg', 'images/Spongebob/Spongebob2.jpeg', 'images/Spongebob/Spongebob3.jpeg', 'images/Spongebob/Spongebob4.jpg', 'images/Spongebob/Spongebob5.jpg', 'images/Spongebob/Spongebob6.jpg', 'images/Spongebob/Spongebob7.jpg'];
 const familyguyImages = ['images/Familyguy/Familyguy1.jpeg', 'images/Familyguy/Familyguy2.jpeg', 'images/Familyguy/Familyguy3.jpeg', 'images/Familyguy/Familyguy4.jpeg', 'images/Familyguy/Familyguy5.jpeg', 'images/Familyguy/Familyguy6.jpeg', 'images/Familyguy/Familyguy7.jpeg', 'images/Familyguy/Familyguy8.jpeg'];
 const gravityfallImages = ['images/GravityFalls/shack1.jpg', 'images/GravityFalls/shack2.jpg', 'images/GravityFalls/shack3.jpg', 'images/GravityFalls/shack4.jpg', 'images/GravityFalls/shack5.jpg'];
-const teentitansImages = ['images/TeenTitans/tower1.png', 'images/TeenTitans/tower2.png', 'images/TeenTitans/tower3.png', 'images/TeenTitans/tower4.png', 'images/TeenTitans/tower5.png'];
+const teentitansImages = ['images/TeenTitans/tower1.jpg', 'images/TeenTitans/tower2.jpg', 'images/TeenTitans/tower3.jpg', 'images/TeenTitans/tower4.jpg', 'images/TeenTitans/tower5.jpg'];
 // Add more arrays for other cards as needed
 
 // Event listeners for the first Phineas card
@@ -272,6 +283,7 @@ function openPopup(cardName) {
         <div class="specs">Beds: ${beds} | Baths: ${baths} | Sq Ft: ${sqft}</div>
         <div class="description"><p>${description}</p></div>
     `;
+    document.getElementById('popup-card-name').textContent = cardName; // Set the popup-card-name
     popupContainer.style.display = 'block';
     currentImageIndex = 0;
     updatePopupImage();
@@ -461,6 +473,37 @@ function changeImage() {
     document.getElementById('slideshow').src = images[currentIndex];
 }
 setInterval(changeImage, 4000);
+
+function makeOffer() {
+    
+    popupDetails.innerHTML = `
+        <h3>Your offer will be sent to the owner</h3>
+        <label for="offer">Enter your offer amount: </label>
+
+        <input type="number" id="offer" name="offer" min="0" max="10000000" />
+        <button id="submit-offer-btn">Submit Offer</button>
+    `;
+    popupContainer.style.display = 'block';
+    // Select the Make Offer button by its ID and add an event listener
+    const submitOfferBtn = document.getElementById('submit-offer-btn');
+    submitOfferBtn.addEventListener('click', submitOffer);
+}
+
+function submitOffer() {
+    closePopup();
+    alert('Offer made!');
+}
+function addWishlist() {
+    const cardId = document.getElementById('popup-card-id').textContent.trim();
+    console.log("Property ID:", cardId);
+
+    // Set the property ID in the hidden input field
+    document.getElementById('wishlistPropertyId').value = cardId;
+
+    // Submit the form
+    document.getElementById('wishlistForm').submit();
+}
+
 
 </script>
 </body>

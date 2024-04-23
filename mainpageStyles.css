@@ -252,6 +252,21 @@ header {
     height: 100%;
 }
 
+.image-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-right: 3px solid #132A13; /* Added border */
+}
+
+.popup-image {
+    max-width: 100%;
+    max-height: 100%;
+}
+
 .popup-details {
     flex: 1;
     display: flex;
@@ -278,17 +293,6 @@ header {
 
 #make-offer-btn {
     margin-top: auto; /* Push button to bottom */
-    align-self: flex-end; /* Align button to right */
-}
-
-#add-wishlist-btn {
-    margin-top: auto; /* Push button to bottom */
-    align-self: flex-end; /* Align button to right */
-}
-#submit-offer-btn{
-    margin-top: auto; /* Push button to bottom */
-    margin-top: auto; /* Push button to bottom */
-    align-self: flex-end; /* Align button to right */
     align-self: flex-end; /* Align button to right */
 }
 
@@ -359,3 +363,12 @@ header {
     width: 100%;
 }
 
+#add-wishlist-btn {
+    margin-top: auto; /* Push button to bottom */
+    align-self: flex-end; /* Align button to right */
+}
+
+#submit-offer-btn{
+    margin-top: auto; /* Push button to bottom */
+    align-self: flex-end; /* Align button to right */
+}

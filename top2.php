@@ -15,7 +15,6 @@
                 echo '<div class="menu-options" id="menuOptions" style="display:none;">';
                 echo '<ul>';
                 echo '<li><a href="wishlist.php">Wishlist</a></li>';
-                echo '<li><a href="myproperties.php">My Properties</a></li>';
                 echo '</ul>';
                 echo '</div>';
             } else {
