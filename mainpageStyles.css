@@ -128,13 +128,11 @@ footer {
 /* Header */
 header {
     background-color: #FFFFFF; 
-    color: #4F772D;
     padding: 10px 20px;
     margin-bottom: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
 }
 
 .logo img {
