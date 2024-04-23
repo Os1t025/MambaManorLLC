@@ -102,7 +102,7 @@
         <div id="popup-card-name" class="popup-card-name"></div>
         <div id="popup-details" class="popup-details"></div> <!-- Details section -->
         <button id="make-offer-btn" onclick="makeOffer()">Make Offer</button>
-        <button id="add-wishlist-btn" onclick="addWishlist(propertyId, username)">Add to Wishlist</button>
+        <button id="add-wishlist-btn" onclick="addWishlist()">Add to Wishlist</button>
     </div>
 </div>
 
@@ -244,6 +244,8 @@ cards.forEach(card => {
         imagesArray = getImagesArray(folder);
         if (imagesArray.length > 0) {
             openPopup(card.textContent.trim());
+            const addWishlistBtn = document.getElementById('add-wishlist-btn');
+            addWishlistBtn.dataset.propertyId = card.getAttribute('data-property-id');
         }
     });
 
@@ -420,9 +422,11 @@ function submitOffer() {
     closePopup();
     alert('Offer made!');
 }
-function addWishlist(propertyId, userId) {
+function addWishlist() {
+    const propertyId = document.getElementById('add-wishlist-btn').dataset.propertyId;
+    const userId = '<?php echo $username; ?>'; // Assuming $username is set in your PHP code
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'data4.php', true);
+    xhr.open('POST', 'add_to_wishlist.php', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
