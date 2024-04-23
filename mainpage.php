@@ -164,7 +164,7 @@ const simpsonsImages = ['images/Simpsons/Simpsons1.jpeg', 'images/Simpsons/Simps
 const spongebobImages = ['images/Spongebob/Spongebob1.jpeg', 'images/Spongebob/Spongebob2.jpeg', 'images/Spongebob/Spongebob3.jpeg', 'images/Spongebob/Spongebob4.jpg', 'images/Spongebob/Spongebob5.jpg', 'images/Spongebob/Spongebob6.jpg', 'images/Spongebob/Spongebob7.jpg'];
 const familyguyImages = ['images/Familyguy/Familyguy1.jpeg', 'images/Familyguy/Familyguy2.jpeg', 'images/Familyguy/Familyguy3.jpeg', 'images/Familyguy/Familyguy4.jpeg', 'images/Familyguy/Familyguy5.jpeg', 'images/Familyguy/Familyguy6.jpeg', 'images/Familyguy/Familyguy7.jpeg', 'images/Familyguy/Familyguy8.jpeg'];
 const gravityfallImages = ['images/GravityFalls/shack1.jpg', 'images/GravityFalls/shack2.jpg', 'images/GravityFalls/shack3.jpg', 'images/GravityFalls/shack4.jpg', 'images/GravityFalls/shack5.jpg'];
-const teentitansImages = ['images/TeenTitans/tower1.png', 'images/TeenTitans/tower2.png', 'images/TeenTitans/tower3.png', 'images/TeenTitans/tower4.png', 'images/TeenTitans/tower5.png'];
+const teentitansImages = ['images/TeenTitans/tower1.jpg', 'images/TeenTitans/tower2.jpg', 'images/TeenTitans/tower3.jpg', 'images/TeenTitans/tower4.jpg', 'images/TeenTitans/tower5.jpg'];
 // Add more arrays for other cards as needed
 
 // Event listeners for the first Phineas card
