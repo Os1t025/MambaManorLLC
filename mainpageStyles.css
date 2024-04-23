@@ -281,6 +281,17 @@ header {
     align-self: flex-end; /* Align button to right */
 }
 
+#add-wishlist-btn {
+    margin-top: auto; /* Push button to bottom */
+    align-self: flex-end; /* Align button to right */
+}
+#submit-offer-btn{
+    margin-top: auto; /* Push button to bottom */
+    margin-top: auto; /* Push button to bottom */
+    align-self: flex-end; /* Align button to right */
+    align-self: flex-end; /* Align button to right */
+}
+
 /* Overlay */
 .overlay {
     display: none;
