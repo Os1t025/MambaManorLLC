@@ -1,6 +1,5 @@
 <?php
 $servername = "localhost";
-$servername = "localhost";
 $username = "bmaldonado4";
 $password = "bmaldonado4";
 $dbname = "bmaldonado4";
@@ -20,8 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $userId = $_POST['user_id'];
 
         // Insert data into 'wishlist' table
-        $sql = "INSERT INTO wishlist (user_id, property_id) 
-                VALUES ('$userId', '$propertyId')";
+        $sql = "INSERT INTO wishlist (user_id, username, property_id, property_name) 
+                SELECT id, username, $propertyId, name FROM user WHERE id = $userId";
 
         if ($conn->query($sql) === TRUE) {
             $conn->close();
