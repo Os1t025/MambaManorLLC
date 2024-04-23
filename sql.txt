@@ -4,9 +4,6 @@ CREATE TABLE user (
     email VARCHAR(100) NOT NULL,
     password VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-<<<<<<< Updated upstream
-);
-=======
 );
 
 CREATE TABLE properties (
@@ -34,4 +31,3 @@ VALUES
 ('Spongebob', 400000.00, '124 Conch Street', 2, 1.5, 1500, 'images/Spongebob/Spongebob1.jpeg'),
 ('Simpsons', 600000.00, '742 Evergreen Terrace', 4, 3, 2500, 'images/Simpsons/Simpsons1.jpeg'),
 ('FamilyGuy', 550000.00, '101 Spooner St', 3, 2.5, 2000, 'images/Familyguy/Familyguy1.jpeg');
->>>>>>> Stashed changes

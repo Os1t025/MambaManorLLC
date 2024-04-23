@@ -2,7 +2,7 @@
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
 }
-?>?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -106,14 +106,6 @@ if (isset($_SESSION['username'])) {
         <button id="make-offer-btn" onclick="makeOffer()">Make Offer</button>
         <button id="add-wishlist-btn" onclick="addWishlist(propertyId, username)">Add to Wishlist</button>
     </div>
-</div>
-
-<div id="popup-container" class="popup-container">
-    <span class="close-btn" onclick="closePopup()">×</span>
-    <div class="popup-content">
-    
-    </div>
-    <button id="submit-offer-btn" onclick="submitOffer()">Submit Offer</button>
 </div>
 
 <script>
@@ -397,8 +389,8 @@ function updateDashboard(result) {
 function makeOffer() {
     
     popupDetails.innerHTML = `
-        <h2>Offer</h2>
-        <label for="offer">Enter your price: </label>
+        <h2>Your offer will be sent to the owner</h2>
+        <label for="offer">Enter your offer amount: </label>
 
         <input type="number" id="offer" name="offer" min="0" max="10000000" />
         <button id="submit-offer-btn">Submit Offer</button>
