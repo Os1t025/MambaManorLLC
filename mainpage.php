@@ -390,7 +390,7 @@ function updateDashboard(result) {
 function makeOffer() {
     
     popupDetails.innerHTML = `
-        <h2>Your offer will be sent to the owner</h2>
+        <h3>Your offer will be sent to the owner</h3>
         <label for="offer">Enter your offer amount: </label>
 
         <input type="number" id="offer" name="offer" min="0" max="10000000" />
