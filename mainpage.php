@@ -104,7 +104,7 @@
 <div class="card teentitans-card" data-folder="teentitans" data-price="950,000" data-address="420 winton falls" data-bed="5" data-bath="2" data-sqft="7000">
     <div class="card-content">
         <div class="image-container">
-            <img src="images/TeenTitans/tower1.png" alt="Teen Titans Image">
+            <img src="images/TeenTitans/tower1.jpg" alt="Teen Titans Image">
         </div>
         <div class="info-container">
             <h2>TitanTower</h2>
