@@ -15,6 +15,8 @@
         <div class="pin spongebob-pin" style="top: 75%; left: 77%;"></div>
         <div class="pin simpsons-pin" style="top: 62%; left: 22%; "></div>
         <div class="pin familyguy-pin" style="top: 27%; left: 25%;"></div>
+        <div class="pin gravityfall-pin" style="top: 30%; left: 83%;"></div>
+        <div class="pin teentitans-pin" style="top: 50%; left: 57%;"></div>
     </div>
     <div class="card-container">
         <!-- Add the search bar -->
@@ -83,6 +85,38 @@
         </div>
     </div>
 </div>
+
+<div class="card gravityfall-card" data-folder="gravityfall" data-price="350,000" data-address="7691 falls rd" data-bed="2" data-bath="2" data-sqft="3000">
+    <div class="card-content">
+        <div class="image-container">
+            <img src="images/GravityFalls/shack1.jpg" alt="Gravity Falls Image">
+        </div>
+        <div class="info-container">
+            <h2>GravityFalls</h2>
+            <div class="details">
+                <p>Price: $350,000</p>
+                <p>Address: 7691 falls rd</p>
+                <p>Beds: 2 | Baths: 2 | Sq Ft: 3000</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card teentitans-card" data-folder="teentitans" data-price="950,000" data-address="420 winton falls" data-bed="5" data-bath="2" data-sqft="7000">
+    <div class="card-content">
+        <div class="image-container">
+            <img src="images/TeenTitans/tower1.png" alt="Teen Titans Image">
+        </div>
+        <div class="info-container">
+            <h2>TitanTower</h2>
+            <div class="details">
+                <p>Price: $950,000</p>
+                <p>Address: 420 winton falls</p>
+                <p>Beds: 5 | Baths: 2 | Sq Ft: 7000</p>
+            </div>
+        </div>
+    </div>
+</div>
         <?php include 'bottom.php'; ?>
     </div>
 </div>
@@ -130,6 +164,8 @@ const phineasImages = ['images/Phineas/Phineas1.jpeg', 'images/Phineas/Phineas2.
 const simpsonsImages = ['images/Simpsons/Simpsons1.jpeg', 'images/Simpsons/Simpsons2.jpeg', 'images/Simpsons/Simpsons3.jpeg', 'images/Simpsons/Simpsons4.jpg', 'images/Simpsons/Simpsons5.jpeg', 'images/Simpsons/Simpsons6.jpeg', 'images/Simpsons/Simpsons7.jpeg'];
 const spongebobImages = ['images/Spongebob/Spongebob1.jpeg', 'images/Spongebob/Spongebob2.jpeg', 'images/Spongebob/Spongebob3.jpeg', 'images/Spongebob/Spongebob4.jpg', 'images/Spongebob/Spongebob5.jpg', 'images/Spongebob/Spongebob6.jpg', 'images/Spongebob/Spongebob7.jpg'];
 const familyguyImages = ['images/Familyguy/Familyguy1.jpeg', 'images/Familyguy/Familyguy2.jpeg', 'images/Familyguy/Familyguy3.jpeg', 'images/Familyguy/Familyguy4.jpeg', 'images/Familyguy/Familyguy5.jpeg', 'images/Familyguy/Familyguy6.jpeg', 'images/Familyguy/Familyguy7.jpeg', 'images/Familyguy/Familyguy8.jpeg'];
+const gravityfallImages = ['images/GravityFalls/shack1.jpg', 'images/GravityFalls/shack2.jpg', 'images/GravityFalls/shack3.jpg', 'images/GravityFalls/shack4.jpg', 'images/GravityFalls/shack5.jpg'];
+const teentitansImages = ['images/TeenTitans/tower1.png', 'images/TeenTitans/tower2.png', 'images/TeenTitans/tower3.png', 'images/TeenTitans/tower4.png', 'images/TeenTitans/tower5.png'];
 // Add more arrays for other cards as needed
 
 // Event listeners for the first Phineas card
@@ -178,6 +214,29 @@ firstFamilyGuyCard.addEventListener('click', () => {
 firstFamilyGuyPin.addEventListener('click', () => {
     openPopup('familyguy'); 
 });
+// Event listeners for the first Gravity Falls card
+const firstGravityFallCard = document.querySelector('.card.gravityfall-card');
+const firstGravityFallPin = document.querySelector('.pin.gravityfall-pin');
+
+firstGravityFallCard.addEventListener('click', () => {
+    openPopup('gravityfall'); 
+});
+
+firstGravityFallPin.addEventListener('click', () => {
+    openPopup('gravityfall'); 
+});
+
+// Event listeners for the first Teen Titans card
+const firstTeenTitansCard = document.querySelector('.card.teentitans-card');
+const firstTeenTitansPin = document.querySelector('.pin.teentitans-pin');
+
+firstTeenTitansCard.addEventListener('click', () => {
+    openPopup('teentitans'); 
+});
+
+firstTeenTitansPin.addEventListener('click', () => {
+    openPopup('teentitans'); 
+});
 function openPopup(cardName) {
     const card = document.querySelector(`.card[data-folder="${cardName.toLowerCase()}"]`);
     const price = card.getAttribute('data-price');
@@ -203,6 +262,14 @@ function openPopup(cardName) {
         case 'familyguy':
             description = "Nestled on 101 Spooner St in Quahog, Rhode Island, the Griffin family home is a charming retreat offering a blend of comfort and character. Featuring multiple levels, a versatile floor plan, and a vibrant neighborhood setting, this residence is perfect for families seeking a cozy yet lively living environment.";
             imagesArray = familyguyImages; 
+            break;
+        case 'gravityfall':
+            description = "Discover the mystery and adventure of Gravity Falls with this enchanting property located at 7691 Falls Rd. Tucked away in a secluded forest setting, this cozy retreat offers tranquility and charm. With its rustic yet cozy interior, expansive grounds, and proximity to local attractions, this property is perfect for those seeking a unique getaway.";
+            imagesArray = gravityfallImages; 
+            break;
+        case 'teentitans':
+            description = "Ascend to new heights with the Teen Titans' iconic Titan Tower, located at 420 Winton Falls. This state-of-the-art headquarters offers unparalleled views of the city skyline and cutting-edge amenities for crime-fighting and relaxation alike. With spacious living quarters, advanced technology, and a prime location, this property is a superhero's dream come true.";
+            imagesArray = teentitansImages; 
             break;
         default:
             description = "Description not available.";
@@ -297,6 +364,10 @@ function getImagesArray(folder) {
             return simpsonsImages;
         case 'familyguy':
             return familyguyImages;
+        case 'gravityfall':
+            return gravityfallImages;
+        case 'teentitans':
+            return teentitansImages;
         default:
             return [];
     }
