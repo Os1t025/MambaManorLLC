@@ -339,6 +339,12 @@ function updateDashboard(result) {
     // Create and append the card with search result
     const card = document.createElement('div');
     card.classList.add('card');
+    card.dataset.folder = result.name.toLowerCase(); // Set data-folder attribute
+    card.dataset.price = result.price; // Set data-price attribute
+    card.dataset.address = result.address; // Set data-address attribute
+    card.dataset.bed = result.beds; // Set data-bed attribute
+    card.dataset.bath = result.baths; // Set data-bath attribute
+    card.dataset.sqft = result.sqft; // Set data-sqft attribute
     card.innerHTML = `
         <div class="card-content">
             <div class="image-container">
@@ -357,12 +363,12 @@ function updateDashboard(result) {
     
     cardContainer.appendChild(card);
 
-    // Reattach event listener for the new card
+    // Attach event listeners for the new card
     card.addEventListener('click', () => {
         openPopup(result.name.toLowerCase());
     });
 
-    // Reattach event listener for the pin
+    // Attach event listener for the pin
     const newPin = document.querySelector(`.pin.${result.name.toLowerCase()}-pin`);
     newPin.addEventListener('click', () => {
         openPopup(result.name.toLowerCase());
@@ -371,6 +377,7 @@ function updateDashboard(result) {
     // Reattach event listeners for all existing cards and pins
     attachEventListeners();
 }
+
 
 </script>
 </body>
