@@ -1,4 +1,5 @@
-<?php include 'top2.php'; 
+<?php include 'top2.php'; ?>
+<?php
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
 }
