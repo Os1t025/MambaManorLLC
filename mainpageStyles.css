@@ -126,6 +126,11 @@ body {
     align-self: flex-end; /* Align button to right */
 }
 
+#submit-offer-btn{
+    margin-top: auto; /* Push button to bottom */
+    align-self: flex-end; /* Align button to right */
+}
+
 /* Overlay */
 .overlay {
     display: none;

@@ -108,6 +108,14 @@ if (isset($_SESSION['username'])) {
     </div>
 </div>
 
+<div id="popup-container" class="popup-container">
+    <span class="close-btn" onclick="closePopup()">×</span>
+    <div class="popup-content">
+    
+    </div>
+    <button id="submit-offer-btn" onclick="submitOffer()">Submit Offer</button>
+</div>
+
 <script>
 const cards = document.querySelectorAll('.card');
 const pins = document.querySelectorAll('.pin');
@@ -388,7 +396,22 @@ function updateDashboard(result) {
 }
 function makeOffer() {
     
-    alert('Offer made!'); // Example: Show an alert message
+    popupDetails.innerHTML = `
+        <h2>Offer</h2>
+        <label for="offer">Enter your price: </label>
+
+        <input type="number" id="offer" name="offer" min="0" max="10000000" />
+        <button id="submit-offer-btn">Submit Offer</button>
+    `;
+    popupContainer.style.display = 'block';
+    // Select the Make Offer button by its ID and add an event listener
+    const submitOfferBtn = document.getElementById('submit-offer-btn');
+    submitOfferBtn.addEventListener('click', submitOffer);
+}
+
+function submitOffer() {
+    closePopup();
+    alert('Offer made!');
 }
 function addWishlist(propertyId, userId) {
     const xhr = new XMLHttpRequest();
