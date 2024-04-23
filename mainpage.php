@@ -1,9 +1,4 @@
 <?php include 'top2.php'; ?>
-<?php
-if (isset($_SESSION['username'])) {
-    $username = $_SESSION['username'];
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +21,7 @@ if (isset($_SESSION['username'])) {
     <div class="search-container">
         <input type="text" id="search-input" placeholder="Search..." oninput="searchProperties()">
     </div>
-    <div class="card phineas-card" data-folder="phineas" data-price="500,000" data-address="2308 Maple Drive" data-bed="3" data-bath="2" data-sqft="1800" data-property-id="1">
+    <div class="card phineas-card" data-folder="phineas" data-price="500,000" data-address="2308 Maple Drive" data-bed="3" data-bath="2" data-sqft="1800">
     <div class="card-content">
         <div class="image-container">
             <img src="images/Phineas/Phineas1.jpeg" alt="Phineas Image">
@@ -41,7 +36,7 @@ if (isset($_SESSION['username'])) {
         </div>
     </div>
 </div>
-<div class="card spongebob-card" data-folder="spongebob" data-price="400,000" data-address="124 Conch Street" data-bed="2" data-bath="1.5" data-sqft="1500" data-property-id="2">
+<div class="card spongebob-card" data-folder="spongebob" data-price="400,000" data-address="124 Conch Street" data-bed="2" data-bath="1.5" data-sqft="1500">
     <div class="card-content">
         <div class="image-container">
             <img src="images/Spongebob/Spongebob1.jpeg" alt="Spongebob Image">
@@ -57,7 +52,7 @@ if (isset($_SESSION['username'])) {
     </div>
 </div>
 
-<div class="card simpsons-card" data-folder="simpsons" data-price="600,000" data-address="742 Evergreen Terrace" data-bed="4" data-bath="3" data-sqft="2500" data-property-id="3">
+<div class="card simpsons-card" data-folder="simpsons" data-price="600,000" data-address="742 Evergreen Terrace" data-bed="4" data-bath="3" data-sqft="2500">
     <div class="card-content">
         <div class="image-container">
             <img src="images/Simpsons/Simpsons1.jpeg" alt="Simpsons Image">
@@ -73,7 +68,7 @@ if (isset($_SESSION['username'])) {
     </div>
 </div>
 
-<div class="card familyguy-card" data-folder="familyguy" data-price="550,000" data-address="101 Spooner St" data-bed="3" data-bath="2.5" data-sqft="2000" data-property-id="4">
+<div class="card familyguy-card" data-folder="familyguy" data-price="550,000" data-address="101 Spooner St" data-bed="3" data-bath="2.5" data-sqft="2000">
     <div class="card-content">
         <div class="image-container">
             <img src="images/Familyguy/Familyguy1.jpeg" alt="Family Guy Image">
@@ -91,7 +86,9 @@ if (isset($_SESSION['username'])) {
         <?php include 'bottom.php'; ?>
     </div>
 </div>
-
+<div class="footer">
+        <img id="slideshow" src="ad1.png" alt="Advertisement">
+    </div>
 <div id="popup-container" class="popup-container">
     <span class="close-btn" onclick="closePopup()">×</span>
     <div class="popup-content">
@@ -355,6 +352,12 @@ function updateDashboard(result) {
     // Create and append the card with search result
     const card = document.createElement('div');
     card.classList.add('card');
+    card.dataset.folder = result.name.toLowerCase(); 
+    card.dataset.price = result.price; 
+    card.dataset.address = result.address; 
+    card.dataset.bed = result.beds; 
+    card.dataset.bath = result.baths; 
+    card.dataset.sqft = result.sqft; 
     card.innerHTML = `
         <div class="card-content">
             <div class="image-container">
@@ -373,20 +376,31 @@ function updateDashboard(result) {
     
     cardContainer.appendChild(card);
 
-    // Reattach event listener for the new card
+    // Attach event listeners for the new card
     card.addEventListener('click', () => {
         openPopup(result.name.toLowerCase());
     });
 
-    // Reattach event listener for the pin
+    // Attach event listener for the pin
     const newPin = document.querySelector(`.pin.${result.name.toLowerCase()}-pin`);
     newPin.addEventListener('click', () => {
         openPopup(result.name.toLowerCase());
     });
 
-    // Reattach event listeners for all existing cards and pins
     attachEventListeners();
 }
+
+const images = ['ad1.png', 'ad2.jpg', 'ad3.JPG'];
+
+let currentIndex = 0;
+
+// Function to change image every 4 seconds
+function changeImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    document.getElementById('slideshow').src = images[currentIndex];
+}
+setInterval(changeImage, 4000);
+
 function makeOffer() {
     
     popupDetails.innerHTML = `

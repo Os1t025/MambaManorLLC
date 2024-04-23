@@ -1,5 +1,4 @@
 <?php
-//this file is for searching
 session_start();
 
 $servername = "localhost";
