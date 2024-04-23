@@ -424,7 +424,7 @@ function submitOffer() {
 }
 function addWishlist() {
     const propertyId = document.getElementById('add-wishlist-btn').dataset.propertyId;
-    const userId = '<?php echo $username; ?>'; // Assuming $username is set in your PHP code
+    const userId = '<?php echo $_SESSION['username']; ?>'; // Assuming $username is set in your PHP code
     const xhr = new XMLHttpRequest();
     xhr.open('POST', 'add_to_wishlist.php', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
