@@ -69,6 +69,7 @@ if (isset($_SESSION['username'])) {
 
         // Add property to wishlist
         $sql = "INSERT INTO wishlist (user_id, property_id) VALUES ($user_id, (SELECT id FROM properties WHERE name = '$propertyName'))";
+        echo "sql query: " . $sql . "<br>";
         if ($conn->query($sql) === TRUE) {
             echo "Property added to wishlist successfully.";
         } else {
