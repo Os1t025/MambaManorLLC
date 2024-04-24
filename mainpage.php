@@ -502,9 +502,9 @@ function addWishlist() {
 
     // Submit the form
     document.getElementById('wishlistForm').submit();
+    // Display confirmation message
+    alert('Property added to wishlist successfully!');
 }
-
-
 
 </script>
 </body>
