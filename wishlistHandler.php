@@ -17,7 +17,8 @@ if (isset($_SESSION['username'])) {
 
     // Retrieve username from session
     $username = $_SESSION['username'];
-
+    $getUserIDSql = "SELECT id FROM user WHERE username = '$username'";
+    echo "user_id: " . $getUserIDSql . "<br>";
     // Retrieve property name from the form
     $propertyName = $_POST['property_name'];
     echo "property name" . $propertyName . "<br>";
@@ -52,7 +53,7 @@ if (isset($_SESSION['username'])) {
         $propertyId = $row['id'];
 
         // Add property to wishlist
-        $sql = "INSERT INTO wishlist (user_id, property_id) VALUES (user_id, (SELECT id FROM properties WHERE name = '$propertyName'))";
+        $sql = "INSERT INTO wishlist (user_id, property_id) VALUES ($getUserIDSql, (SELECT id FROM properties WHERE name = '$propertyName'))";
         if ($conn->query($sql) === TRUE) {
             echo "Property added to wishlist successfully.";
         } else {
