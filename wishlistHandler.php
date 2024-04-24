@@ -18,6 +18,21 @@ if (isset($_SESSION['username'])) {
     // Retrieve username from session
     $username = $_SESSION['username'];
     $getUserIDSql = "SELECT id FROM user WHERE username = '$username'";
+    $userIDResult = $conn->query($getUserIDSql);
+
+    if ($userIDResult->num_rows > 0) {
+        $row = $userIDResult->fetch_assoc();
+        $userID = $row['id'];
+
+        // Store user ID in a variable for further processing
+        $user_id = $userID;
+        echo "User ID retrieved: " . $user_id; // Displaying for testing purposes, remove in final code
+    } else {
+        echo "User ID not found.";
+    }
+
+    $conn->close();
+
     echo "user_id: " . $getUserIDSql . "<br>";
     // Retrieve property name from the form
     $propertyName = $_POST['property_name'];
