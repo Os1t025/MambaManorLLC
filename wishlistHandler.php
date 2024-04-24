@@ -20,6 +20,7 @@ if (isset($_SESSION['username'])) {
 
     // Retrieve property name from the form
     $propertyName = $_POST['property_name'];
+    echo "property name" . $propertyName . "<br>";
 
     switch($propertyName){
         case 'phineas':
@@ -51,7 +52,7 @@ if (isset($_SESSION['username'])) {
         $propertyId = $row['id'];
 
         // Add property to wishlist
-        $sql = "INSERT INTO wishlist (user_id, property_id) VALUES (user_id, (SELECT id FROM properties WHERE name = $propertyName))";
+        $sql = "INSERT INTO wishlist (user_id, property_id) VALUES (user_id, (SELECT id FROM properties WHERE name = '$propertyName'))";
         if ($conn->query($sql) === TRUE) {
             echo "Property added to wishlist successfully.";
         } else {
