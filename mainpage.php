@@ -500,11 +500,23 @@ function addWishlist() {
     // Set the property name in the hidden input field
     document.getElementById('wishlistPropertyName').value = propertyName;
 
-    // Submit the form
-    document.getElementById('wishlistForm').submit();
-    // Display confirmation message
-    alert('Property added to wishlist successfully!');
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'wishlistHandler.php', true);
+
+    // Set up the callback function to handle the response
+    xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            // If the request was successful, display a confirmation message
+            alert('Property added to wishlist successfully!');
+        } else {
+            // If there was an error, display an error message
+            alert('Error adding property to wishlist. Please try again later.');
+        }
+    };
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send('property_name=' + encodeURIComponent(propertyName));
 }
+
 
 </script>
 </body>
