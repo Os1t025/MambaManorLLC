@@ -139,7 +139,7 @@
         <!-- Add a form for adding to wishlist -->
         <form action="wishlistHandler.php" method="post" id="wishlistForm">
             <input type="hidden" name="property_name" id="wishlistPropertyName">
-            <button type="submit" id="add-wishlist-btn">Add to Wishlist</button>
+            <button type="button" id="add-wishlist-btn" onclick="addWishlist()">Add to Wishlist</button>
         </form>
 
         <!-- You may keep the "Make Offer" button if needed -->
@@ -494,15 +494,16 @@ function submitOffer() {
     alert('Offer made!');
 }
 function addWishlist() {
-    const cardId = document.getElementById('popup-card-id').textContent.trim();
-    console.log("Property ID:", cardId);
+    const propertyName = document.getElementById('popup-card-name').textContent.trim();
+    console.log("Property Name:", propertyName);
 
-    // Set the property ID in the hidden input field
-    document.getElementById('wishlistPropertyId').value = cardId;
+    // Set the property name in the hidden input field
+    document.getElementById('wishlistPropertyName').value = propertyName;
 
     // Submit the form
     document.getElementById('wishlistForm').submit();
 }
+
 
 
 </script>

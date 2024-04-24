@@ -24,6 +24,10 @@ if (isset($_SESSION['username'])) {
     // Get property ID from database
     $sql = "SELECT id FROM properties WHERE name = '$propertyName'";
     $result = $conn->query($sql);
+    echo '<pre>';
+    var_dump($_SESSION);
+    var_dump($_POST);
+    echo '</pre>';
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
